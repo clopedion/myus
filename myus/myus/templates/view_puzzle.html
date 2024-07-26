@@ -94,5 +94,8 @@
 
     <hr />
 
-    {{ puzzle.content|markdown }}
+    <iframe id="puzzleframe"
+            sandbox="allow-same-origin allow-top-navigation"
+            srcdoc="{{puzzle_iframe | force_escape}}"
+            onload="resizePuzzle()"></iframe>
 {% endblock %}

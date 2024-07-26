@@ -86,6 +86,13 @@
                 node.textContent = new Date(Number(node.dataset.timestamp) * 1000).toLocaleString('en-CA');
                 node.setAttribute('title', 'Automatically converted to your time zone');
             });
+
+            function resizePuzzle(event) {
+                puzzle = document.getElementById("puzzleframe");
+                puzzle.height=puzzle.contentDocument.documentElement.scrollHeight;
+            }
+
+            addEventListener("resize", resizePuzzle);
         </script>
     </body>
 </html>

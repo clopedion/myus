@@ -311,6 +311,12 @@ def view_puzzle(
                 return redirect(urls.reverse("view_puzzle", args=[hunt_id, puzzle_id]))
     else:
         guess_form = GuessForm()
+    puzzle_iframe = render_to_string(
+        "view_puzzle_iframe.html",
+        {
+            "puzzle": puzzle,
+        },
+    )
 
     return render(
         request,
@@ -319,6 +325,7 @@ def view_puzzle(
             "hunt": hunt,
             "team": team,
             "puzzle": puzzle,
+            "puzzle_iframe": puzzle_iframe,
             "solved": solved,
             "guesses_limited": guesses_limited,
             "guesses_remaining": guesses_remaining,
